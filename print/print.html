@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- mdl -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <!-- mdl plus plus -->
+    <!-- local -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <title>Print Laporan Harian</title>
+</head>
+
+<body>
+    <!-- Uses a header that scrolls with the text, rather than staying
+  locked at the top -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
+                <span class="mdl-layout-title">
+                    <span class="material-icons">
+                        cleaning_services
+                    </span>
+                    Print Laporan Harian</span>
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="mdl-layout-spacer"></div>
+                <!-- Navigation -->
+                <nav class="mdl-navigation">
+                    <!-- account button di screen kecil pindah ke sidebar-->
+                    <div class="margin-x mdl-layout--large-screen-only">
+                        <button id="account"
+                            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                            <span class="material-icons">account_circle</span>
+                            Doni Hermawan
+                        </button>
+                        <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="account">
+                            <li class="mdl-menu__item">Some Action</li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">
+                <span class="material-icons">
+                    cleaning_services
+                </span>
+                KoKeRu</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="/">Dashboard</a>
+                <a class="mdl-navigation__link" href="">Print</a>
+                <!-- account button di screen besar pindah ke navbar-->
+                <div class="margin-x mdl-layout--small-screen-only">
+                    <button id="account-side"
+                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                        <span class="material-icons">account_circle</span>
+                        Doni Hermawan
+                    </button>
+                    <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="account-side">
+                        <li class="mdl-menu__item">Some Action</li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <!-- content here -->
+            <div class="page-content">
+                <section id="content-header">
+                </section>
+                <section id="content-body">
+                    <div class="mdl-grid">
+                        <div class="mdl-cell">
+                            <form action="" name="print">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input type="date" name="tanggal" id="tanggal" class="mdl-textfield__input"
+                                        value="2020-11-10">
+                                    <label for="tanggal" class="mdl-textfield__label">Tanggal</label>
+                                </div>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label margin-bottom">
+                                    <select name="pilihanStatus" id="pilihanStatus" class="mdl-textfield__input">
+                                        <option selected disabled value=""></option>
+                                        <option>SEMUA</option>
+                                        <option>BELUM</option>
+                                        <option>SUDAH</option>
+                                    </select>
+                                    <label for="pilihanStatus" class="mdl-textfield__label">Pilih Status</label>
+                                </div>
+                            </form>
+                            <div>
+                                <button onclick="fireModal()"
+                                    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                                    Tampil</button>
+                            </div>
+                        </div>
+                </section>
+                <section id="popup">
+
+                    <dialog class="mdl-dialog" id="dialog-1">
+                        <h4 class="mdl-dialog__title">Laporan Harian Kebersihan dan Kerapihan Ruangan Gedung Bersama
+                            Maju</h4>
+                        <div class="mdl-dialog__content">
+                            <p>Kamis Tanggal 10 Nopember 2020</p>
+                            <p>Tanggal Cetak 12 Nopember 2020 Jam 10:10 WIB</p>
+                            <table class="mdl-data-table mdl-js-data-table">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Ruang</th>
+                                        <th>Nama CS</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>R.123</td>
+                                        <td>Doni Kusumah</td>
+                                        <td>SUDAH</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>R.124</td>
+                                        <td>Doni Kusumah</td>
+                                        <td>SUDAH</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>R.125</td>
+                                        <td>Doni Kusumah</td>
+                                        <td>BELUM</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mdl-dialog__actions">
+                            <button type="button" class="mdl-button close">Close</button>
+                        </div>
+                    </dialog>
+                </section>
+            </div>
+        </main>
+    </div>
+
+
+    <!-- mdl -->
+    <script defer src=" https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <!-- mdl plus plus -->
+    <!-- local -->
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
