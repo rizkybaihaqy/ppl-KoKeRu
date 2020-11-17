@@ -1,3 +1,7 @@
+<!-- 
+    CSS dilakukan secara internal(di head) dan inline(hanya satu)
+    Javascript dilakukan secara internal di bagian plaing bawah (untuk print)
+ -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,15 +10,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laporan KoKeRu Harian</title>
     <style>
-        body {
-            font-family: "Times New Roman", serif;
-            font-size: 14px;
-            text-align: center;
-        }
-
         table {
             border-collapse: collapse;
             width: 100%;
+            font-family: "Times New Roman", serif;
+            font-size: 14px;
+            text-align: center;
         }
 
         th,
@@ -24,17 +25,39 @@
             padding: 0.3rem;
         }
 
-        #ttd td,
-        #ttd th {
+        .borderless td,
+        .borderless th,
+        .borderless h1,
+        .borderless h2,
+        .borderless h3 {
             border: none;
+            padding: unset;
+            margin-block-start: 0.3em;
+            margin-block-end: 0.3em;
         }
     </style>
 </head>
 
 <body>
-    <h1>Laporan Harian Kebersihan dan Kerapihan Ruangan Gedung Bersama Maju</h1>
-    <h2>Hari Kamis Tanggal 10 Nopember 2020</h2>
-    <h3><em>Tanggal Cetak 12 Nopember 2020 Jam 10:10 WIB</em></h3>
+    <table class="borderless">
+        <thead>
+            <tr>
+                <th>
+                    <h1>Laporan Harian Kebersihan dan Kerapihan Ruangan Gedung Bersama Maju</h1>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <h2>Hari Kamis Tanggal 10 Nopember 2020</h2>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <h3><em>Tanggal Cetak 12 Nopember 2020 Jam 10:10 WIB</em></h3>
+                </th>
+            </tr>
+        </thead>
+    </table>
     <table>
         <thead>
             <th>No</th>
@@ -59,18 +82,17 @@
                 <td>3</td>
                 <td>Doni Hermawan</td>
                 <td>R.125</td>
-                <td>SUDAH</td>
+                <td>BELUM</td>
             </tr>
             <tr></tr>
         </tbody>
     </table>
-    <table id="ttd">
-        <tbody style="font-size: 14px;width: 100%;font-family: 'Times New Roman'!important;">
+    <table class="borderless">
+        <tbody>
             <tr>
                 <td></td>
-                <td colspan="6">&nbsp;</td>
+                <td colspan="4">&nbsp;</td>
                 <td></td>
-                <td colspan="6"></td>
                 <td></td>
             </tr>
             <tr>
@@ -82,7 +104,7 @@
             <tr>
                 <td></td>
                 <td colspan="4">&nbsp;</td>
-                <td colspan="4"><i></i></td>
+                <td colspan="4"></td>
                 <td></td>
             </tr>
             <tr>
@@ -111,7 +133,9 @@
             </tr>
         </tbody>
     </table>
-
+    <script>
+        // window.print()
+    </script>
 
 </body>
 

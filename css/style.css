@@ -8,6 +8,10 @@
   background: #f44336;
 }
 
+.mdl-card__subtitle-text {
+  color: #fff;
+}
+
 #lightBox {
   width: fit-content;
 }
@@ -34,4 +38,11 @@ body {
 .img-200 {
   width: 200px;
   height: 200px;
+}
+
+#laporanHarian,
+#laporanHarian h1,
+#laporanHarian h2,
+#laporanHarian h3 {
+  font-family: "Times New Roman", serif;
 }
