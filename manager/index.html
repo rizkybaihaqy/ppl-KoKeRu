@@ -5,21 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- dialog polyfill -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.5.4/dialog-polyfill.min.css">
     <!-- mdl -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-blue.min.css" />
     <!-- local -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 
     <title>KoKeRu</title>
 </head>
 
 <body>
-    <!-- Uses a header that scrolls with the text, rather than staying
-  locked at the top -->
+    <!-- Sebisa mungkin semua element ada didalam tag div dengan 
+        class berisi mdl-layout ini -->
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+        <!------------------------------------------------------------ NAVBAR ------------------------------------------------------------>
         <header class="mdl-layout__header">
             <div class="mdl-layout__header-row">
                 <!-- Title -->
@@ -32,20 +36,26 @@
                 <div class="mdl-layout-spacer"></div>
                 <!-- Navigation -->
                 <nav class="mdl-navigation">
-                    <!-- account button di screen kecil pindah ke sidebar-->
-                    <div class="margin-x mdl-layout--large-screen-only">
+                    <!-- account button
+                        Di screen kecil pindah ke sidebar-->
+                    <div class="pls-margin-x mdl-layout--large-screen-only">
                         <button id="account"
                             class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                             <span class="material-icons">account_circle</span>
-                            Arif Sutowo
+                            <span class="account-name">Arif Sutowo</span>
                         </button>
+                        <!-- list menu saat tombol di click -->
                         <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="account">
-                            <li class="mdl-menu__item">Some Action</li>
+                            <!-- menu yang hanya digunakan pada fase development -->
+                            <li class="mdl-menu__item">Ganti Akun (dev)</li>
                         </ul>
                     </div>
                 </nav>
             </div>
         </header>
+
+        <!------------------------------------------------------------ SIDEBAR ----------------------------------------------------------
+            Muncul ketika tombol menu di click -->
         <div class="mdl-layout__drawer">
             <span class="mdl-layout-title">
                 <span class="material-icons">
@@ -56,35 +66,41 @@
                 <a class="mdl-navigation__link" href="">Dashboard</a>
                 <a class="mdl-navigation__link" href="../print/print.html">Print</a>
                 <!-- account button di screen besar pindah ke navbar-->
-                <div class="margin-x mdl-layout--small-screen-only">
+                <div class="pls-margin-x mdl-layout--small-screen-only">
                     <button id="account-side"
                         class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                         <span class="material-icons">account_circle</span>
-                        Arif Sutowo
+                        <span class="account-name">Arif Sutowo</span>
                     </button>
+                    <!-- list menu saat tombol di click -->
                     <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="account-side">
-                        <li class="mdl-menu__item">Some Action</li>
+                        <!-- menu yang hanya digunakan pada fase development -->
+                        <li class="mdl-menu__item">Ganti Akun (dev)</li>
                     </ul>
                 </div>
             </nav>
         </div>
+
+        <!------------------------------------------------------------ ISI ------------------------------------------------------------>
         <main class="mdl-layout__content">
             <!-- content here -->
             <div class="page-content">
+                <!-- Berisi nama gedung dan tanggal -->
                 <section id="content-header">
                     <div class="mdl-grid">
                         <div class="mdl-cell mdl-cell--12-col mdl-shadow--2dp">
                             <h1 class="mdl-cell--hide-phone">Monitoring Kebersihan dan Kerapihan Ruang</h1>
-                            <h2 class="mdl-cell--hide-phone">Gedung Bersama Maju</h2>
-                            <h3 class="">Hari Kamis Tanggal 12 Nopember 2020 Jam 7.11 WIB</p>
+                            <h2 class="">Gedung Bersama Maju</h2>
+                            <h3 class="mdl-cell--hide-phone">Hari Kamis Tanggal 12 Nopember 2020 Jam 7.11 WIB</p>
                         </div>
                     </div>
                 </section>
+                <!-- bersisi card ruangan -->
                 <section id="content-body">
                     <div class="mdl-grid">
                         <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--12-col-phone">
                             <div class="mdl-card mdl-shadow--2dp">
-                                <div class="mdl-card__title mdl-card--expand done">
+                                <div class="mdl-card__title mdl-card--expand pls-done">
                                     <div>
                                         <div class="mdl-card__title-text">R.123</div>
                                         <div class="mdl-card__subtitle-text">Sudah</div>
@@ -95,7 +111,7 @@
                                 </div>
                                 <div class="mdl-card__actions mdl-card--border">
                                     <button id="show-dialog" type="button" onclick="fireModal()"
-                                        class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Show
+                                        class="mdl-button mdl-button--accent mdl-js-button mdl-js-ripple-effect">Show
                                         Detail</button>
                                 </div>
                             </div>
@@ -103,7 +119,7 @@
                         <!-- More filler card -->
                         <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--12-col-phone">
                             <div class="mdl-card mdl-shadow--2dp">
-                                <div class="mdl-card__title mdl-card--expand done">
+                                <div class="mdl-card__title mdl-card--expand pls-done">
                                     <div>
                                         <div class="mdl-card__title-text">R.124</div>
                                         <div class="mdl-card__subtitle-text">Sudah</div>
@@ -114,7 +130,7 @@
                                 </div>
                                 <div class="mdl-card__actions mdl-card--border">
                                     <button id="show-dialog" type="button" onclick="fireModal()"
-                                        class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Show
+                                        class="mdl-button mdl-button--accent mdl-js-button mdl-js-ripple-effect">Show
                                         Detail</button>
                                 </div>
                             </div>
@@ -132,7 +148,25 @@
                                 </div>
                                 <div class="mdl-card__actions mdl-card--border">
                                     <button id="show-dialog" type="button" onclick="fireModalKosongDemo()"
-                                        class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Show
+                                        class="mdl-button mdl-button--accent mdl-js-button mdl-js-ripple-effect">Show
+                                        Detail</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--12-col-phone">
+                            <div class="mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title mdl-card--expand">
+                                    <div>
+                                        <div class="mdl-card__title-text">R.126</div>
+                                        <div class="mdl-card__subtitle-text">Belum</div>
+                                    </div>
+                                </div>
+                                <div class="mdl-card__supporting-text">
+                                    <span class="account-name">Dewi Deswinta Sari</span>
+                                </div>
+                                <div class="mdl-card__actions mdl-card--border">
+                                    <button id="show-dialog" type="button" onclick="fireModalKosongDemo()"
+                                        class="mdl-button mdl-button--accent mdl-js-button mdl-js-ripple-effect">Show
                                         Detail</button>
                                 </div>
                             </div>
@@ -140,28 +174,32 @@
                         <!-- end of filler card -->
                     </div>
                 </section>
-                <section id="popup">
 
+                <!------------------------------------------------------------ POP-UP ------------------------------------------------------------>
+                <section id="popup">
+                    <!-- dialog pertama yang muncul ketika tombol detail di click -->
                     <dialog class="mdl-dialog" id="dialog-1">
                         <h4 class="mdl-dialog__title">Bukti Kebersihan dan Kerapihan</h4>
                         <div class="mdl-dialog__content">
+                            <!-- Thummbnail Gambar yang telah di upload
+                                jika di click akan men-fire lightbox -->
                             <div class="mdl-grid">
                                 <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-                                    <img src="https://source.unsplash.com/random" alt="img" class="img-200"
+                                    <img src="https://source.unsplash.com/random" alt="img" class="pls-img-200"
                                         onclick="fireLightBox()">
                                 </div>
                                 <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-                                    <img src="https://source.unsplash.com/random" alt="img" class="img-200"
+                                    <img src="https://source.unsplash.com/random" alt="img" class="pls-img-200"
                                         onclick="fireLightBox()">
                                 </div>
                             </div>
                             <div class=" mdl-grid">
                                 <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-                                    <img src="https://source.unsplash.com/random" alt="img" class="img-200"
+                                    <img src="https://source.unsplash.com/random" alt="img" class="pls-img-200"
                                         onclick="fireLightBox()">
                                 </div>
                                 <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-                                    <img src="https://source.unsplash.com/random" alt="img" class="img-200"
+                                    <img src="https://source.unsplash.com/random" alt="img" class="pls-img-200"
                                         onclick="fireLightBox()">
                                 </div>
                             </div>
@@ -170,7 +208,8 @@
                             <button type="button" class="mdl-button close">Close</button>
                         </div>
                     </dialog>
-
+                    <!-- Lightbox adalah gambar yang ditampilkan
+                        menggunakan dialog(modal) -->
                     <dialog class="mdl-dialog" id="lightBox">
                         <div class="mdl-dialog__content">
                             <img src="https://source.unsplash.com/random" alt="img">
@@ -179,8 +218,11 @@
                             <button type="button" class="mdl-button close-lightBox">Close</button>
                         </div>
                     </dialog>
-                    <!-- filler -->
-                    <dialog class="mdl-dialog" id="dialog-kosong">
+
+                    <!-- Filler,
+                        Digunakan untuk mendemostrasikan dialog(modal)
+                        jika belum ada foto yang di upload -->
+                    <dialog class="mdl-dialog" id="dialog_kosong">
                         <h4 class="mdl-dialog__title">Bukti Kebersihan dan Kerapihan</h4>
                         <div class="mdl-dialog__content">
                             <div class="mdl-grid">
@@ -210,11 +252,14 @@
         </main>
     </div>
 
-
+    <!-- dialog polyfill -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.5.4/dialog-polyfill.min.js"></script>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- mdl -->
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <!-- local -->
-    <script src="js/script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 
 </html>

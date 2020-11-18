@@ -1,8 +1,9 @@
-/* local end here */
-/* MDL */
-#content-header {
-  text-align: center;
-}
+/* 
+* MDL
+* Segala sesuatu yang mengganti style dari
+* class yang terdapat di MDL
+*/
+
 .mdl-card__title {
   color: #fff;
   background: #f44336;
@@ -10,10 +11,6 @@
 
 .mdl-card__subtitle-text {
   color: #fff;
-}
-
-#lightBox {
-  width: fit-content;
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -24,20 +21,47 @@
   }
 }
 
-/* LOCAL */
-body {
-  font-family: "Roboto", sans-serif;
-}
-.margin-x {
+/*
+* PLEASE
+* Karena MDL tidak menyediakan helper class
+* jadi kita buat sendiri.
+* Helper class yang dibuat untuk global.
+* Tolong gunakan prefix pls-
+*/
+
+.pls-margin-x {
   margin-left: 1rem;
   margin-right: 1rem;
 }
-.done {
+.pls-magin-y {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.pls-done {
   background: #4caf50;
 }
-.img-200 {
+.pls-img-200 {
   width: 200px;
   height: 200px;
+}
+
+/* 
+* HTML BIASA
+*/
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+#content-header {
+  text-align: center;
+}
+
+#lightBox {
+  width: fit-content;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  overflow-x: scroll;
 }
 
 #laporanHarian,
